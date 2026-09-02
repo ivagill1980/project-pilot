@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Project Pilot — Codex 大型项目导航与 Rescue Skill</title>
+<style>
+:root{--bg:#071018;--panel:#0c1722;--panel2:#101f2d;--text:#eaf2f8;--muted:#93a8b8;--line:#213647;--good:#55d6a2;--warn:#f4c95d;--bad:#ff7b7b;--unknown:#9c9cff;--accent:#63b3ff;--accent2:#8ae6ff;--shadow:0 14px 38px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(180deg,#061019,#09131d 45%,#071018);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.65}a{color:var(--accent2)}button{font:inherit}.wrap{max-width:1180px;margin:auto;padding:0 24px}.hero{padding:80px 0 54px;border-bottom:1px solid var(--line);background:radial-gradient(circle at 78% 12%,rgba(99,179,255,.15),transparent 34%),radial-gradient(circle at 15% 60%,rgba(85,214,162,.09),transparent 28%)}.eyebrow{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);padding:6px 10px;border-radius:999px;color:var(--accent2);background:rgba(255,255,255,.025);font-size:13px}.hero h1{font-size:clamp(42px,7vw,78px);line-height:1.02;margin:20px 0 16px;letter-spacing:-.045em}.hero p{font-size:20px;color:#b7cad7;max-width:850px;margin:0}.tagline{margin-top:26px;font-size:25px;font-weight:700}.tagline em{font-style:normal;color:var(--good)}.nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(16px);background:rgba(7,16,24,.86);border-bottom:1px solid var(--line)}.nav .wrap{display:flex;gap:8px;overflow:auto;padding-top:10px;padding-bottom:10px}.nav a{white-space:nowrap;text-decoration:none;color:#b5c7d4;border:1px solid transparent;border-radius:8px;padding:7px 10px;font-size:14px}.nav a:hover{border-color:var(--line);color:white;background:rgba(255,255,255,.03)}section{padding:62px 0;border-bottom:1px solid rgba(33,54,71,.7)}h2{font-size:34px;letter-spacing:-.02em;margin:0 0 10px}h3{font-size:22px;margin:0 0 10px}.lead{font-size:18px;color:#b7cad7;max-width:850px}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;margin-top:26px}.card{grid-column:span 4;border:1px solid var(--line);border-radius:16px;padding:22px;background:linear-gradient(180deg,rgba(16,31,45,.95),rgba(10,22,32,.95));box-shadow:var(--shadow)}.card.wide{grid-column:span 6}.card.full{grid-column:1/-1}.card p{color:#a9bdca;margin-bottom:0}.big-num{font-size:42px;font-weight:800;color:var(--accent2);line-height:1}.pill{display:inline-block;border-radius:999px;padding:4px 9px;font-size:12px;font-weight:700;letter-spacing:.02em}.good{color:var(--good);background:rgba(85,214,162,.1)}.warn{color:var(--warn);background:rgba(244,201,93,.1)}.bad{color:var(--bad);background:rgba(255,123,123,.1)}.unknown{color:var(--unknown);background:rgba(156,156,255,.1)}.diagram{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#050d14;border:1px solid var(--line);border-radius:14px;padding:22px;overflow:auto;color:#c9e5f7;white-space:pre;line-height:1.55}.pilot{border:1px solid #2d4d63;border-radius:18px;background:linear-gradient(180deg,#0b1824,#08131c);padding:22px;box-shadow:var(--shadow)}.pilot-top{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:start}.goal{font-size:20px;font-weight:800}.muted{color:var(--muted)}.progress-row{display:grid;grid-template-columns:110px 1fr 54px;gap:10px;align-items:center;margin:9px 0;font-size:14px}.bar{height:9px;background:#162836;border-radius:999px;overflow:hidden;border:1px solid #203646}.fill{height:100%;background:linear-gradient(90deg,#55d6a2,#63b3ff);border-radius:999px}.crumb{margin-top:18px;padding:14px 16px;border-left:3px solid var(--accent);background:#0a1b28;border-radius:0 10px 10px 0}.why,.now,.done{margin-top:12px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.018)}.now{border-color:#315879}.done ul{margin:8px 0 0;padding-left:20px}.modes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.mode{border:1px solid var(--line);border-radius:14px;padding:18px;background:#0b1823;cursor:pointer;transition:.18s}.mode:hover,.mode.active{transform:translateY(-2px);border-color:#42749a;background:#102436}.mode b{display:block;margin-bottom:4px}.mode-detail{margin-top:16px;border:1px solid var(--line);border-radius:14px;background:#07121b;padding:20px;min-height:190px}.flow{display:flex;align-items:center;gap:8px;overflow:auto;padding:18px 0}.node{min-width:138px;text-align:center;border:1px solid var(--line);border-radius:12px;padding:12px;background:#0c1a26}.arrow{color:#668196;font-size:22px}.node.hot{border-color:var(--accent);box-shadow:0 0 0 1px rgba(99,179,255,.16),0 0 30px rgba(99,179,255,.12)}.commands{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.cmd{display:flex;gap:14px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;background:#0b1823;padding:15px}.cmd code{white-space:nowrap;color:var(--accent2);font-size:15px}.cmd span{color:#a9bdca}.tree{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;border-left:2px solid #264156;padding-left:18px}.tree div{padding:5px 0}.current{color:#8ae6ff;font-weight:800}.timeline{position:relative;margin-top:24px;padding-left:26px}.timeline:before{content:"";position:absolute;left:6px;top:8px;bottom:8px;width:2px;background:#274357}.titem{position:relative;padding:0 0 25px 18px}.titem:before{content:"";position:absolute;left:-25px;top:7px;width:11px;height:11px;border-radius:50%;background:#63b3ff;box-shadow:0 0 0 4px #10202c}.titem p{color:#a9bdca;margin:5px 0}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}.tab{border:1px solid var(--line);background:#0b1823;color:#b8cad5;padding:8px 12px;border-radius:9px;cursor:pointer}.tab.active{background:#153149;color:white;border-color:#3c7197}.tabpane{display:none}.tabpane.active{display:block}.code{background:#040b11;border:1px solid var(--line);border-radius:14px;padding:18px;white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#bed9e9;overflow:auto}.callout{border-left:4px solid var(--good);background:rgba(85,214,162,.07);padding:16px 18px;border-radius:0 12px 12px 0;margin:20px 0}.callout.warnc{border-color:var(--warn);background:rgba(244,201,93,.06)}table{width:100%;border-collapse:collapse;margin-top:18px;font-size:14px}th,td{text-align:left;padding:12px;border-bottom:1px solid var(--line);vertical-align:top}th{color:#dceaf3}td{color:#a9bdca}.footer{padding:45px 0 70px;color:#839aa9}.small{font-size:13px}@media(max-width:800px){.card,.card.wide{grid-column:1/-1}.modes,.commands{grid-template-columns:1fr}.hero{padding-top:55px}.progress-row{grid-template-columns:82px 1fr 44px}.pilot-top{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<span class="eyebrow">Codex Skill · Large Project Navigation · Brownfield Rescue</span>
+<h1>Project Pilot</h1>
+<p>把超大型软件项目变成一个始终可定位、可验证、可恢复的闭环控制系统。它不会只告诉你“下一步做什么”，而是让你在做每一步时始终知道：最终目标是什么、现在在整个计划的哪里、完成了多少、为什么现在做这件事。</p>
+<div class="tagline">核心原则：<em>One Thing in Context.</em></div>
+</div></header>
+<nav class="nav"><div class="wrap">
+<a href="#mental">核心模型</a><a href="#hud">每轮导航 HUD</a><a href="#modes">三种模式</a><a href="#rescue">Rescue</a><a href="#commands">命令</a><a href="#files">状态文件</a><a href="#demo">对话演示</a><a href="#install">使用方式</a>
+</div></nav>
+
+<section id="mental"><div class="wrap">
+<h2>1. 它不是 TODO 工具，而是项目控制层</h2>
+<p class="lead">Project Pilot 持续比较“目标状态”和“项目现实”，然后决定下一步。计划不是事实；代码、测试、CI、运行结果和最新决策共同构成现实。</p>
+<div class="grid">
+<div class="card"><div class="big-num">01</div><h3>保持方向</h3><p>最终目标、Phase、Milestone、Task、Step 始终形成完整坐标。</p></div>
+<div class="card"><div class="big-num">02</div><h3>控制漂移</h3><p>发现计划、文档、架构、范围、验证体系与实际代码的偏离。</p></div>
+<div class="card"><div class="big-num">03</div><h3>随时恢复</h3><p>中断后不是读完整聊天历史，而是从项目状态和 checkpoint 重建“YOU ARE HERE”。</p></div>
+<div class="card full"><div class="diagram">FINAL GOAL
+    │
+    ▼
+PROJECT MAP ──────────────┐
+    │                     │ expected state
+    ▼                     │
+YOU ARE HERE              │
+    │                     │
+    ▼                     │
+NEXT STEP                 │
+    │                     │
+    ▼                     │
+WORK → VERIFY → OBSERVE REALITY
+                    │
+                    ├── aligned ─────→ continue
+                    │
+                    └── drift ───────→ reconcile
+                                          │
+                                   severe drift?
+                                     │       │
+                                    no      yes
+                                     │       │
+                                  continue  RESCUE
+                                              │
+                                          rebaseline
+                                              │
+                                              └──→ PROJECT MAP</div></div>
+</div>
+</div></section>
+
+<section id="hud"><div class="wrap">
+<h2>2. 每一轮都显示全局 + 当前</h2>
+<p class="lead">“专注”不等于把整个地图藏起来。默认只执行一个动作，但持续显示它在整个项目中的位置和贡献。</p>
+<div class="pilot">
+<div class="pilot-top"><div><div class="muted small">🎯 PROJECT</div><div class="goal">上线可收费的 AI 财报分析 SaaS</div></div><span class="pill good">BUILD MODE</span></div>
+<div style="margin-top:18px">
+<div class="progress-row"><span>Project</span><div class="bar"><div class="fill" style="width:38%"></div></div><b>38%</b></div>
+<div class="progress-row"><span>Phase 3 / 8</span><div class="bar"><div class="fill" style="width:61%"></div></div><b>61%</b></div>
+<div class="progress-row"><span>Milestone</span><div class="bar"><div class="fill" style="width:82%"></div></div><b>82%</b></div>
+</div>
+<div class="crumb"><b>📍 YOU ARE HERE</b><br>MVP → 用户认证 → 登录 API → <span class="current">Step 3/5：错误密码处理</span></div>
+<div class="why"><b>🧭 WHY THIS MATTERS</b><br><span class="muted">完成后登录 API 的安全失败路径成立，当前 Task 会进入最后两个验收步骤，并解锁前端登录集成。</span></div>
+<div class="now"><b>🔨 NOW</b><br>让错误密码返回 401，并保持不存在用户同样返回 401。</div>
+<div class="done"><b>✅ DONE WHEN</b><ul><li>正确密码 → 200</li><li>错误密码 → 401</li><li>不存在用户 → 401</li><li>相关测试通过</li></ul></div>
+</div>
+<div class="callout">进度条不是模型“凭感觉”产生。父节点进度来自项目树中的子节点状态和权重；未知项必须标成 <b>? UNKNOWN</b>。</div>
+</div></section>
+
+<section id="modes"><div class="wrap">
+<h2>3. NORMAL / RECONCILE / RESCUE</h2>
+<p class="lead">Skill 不要求从项目第一天开始使用。任何已有项目都可以接入；状态越混乱，越倾向从 Rescue 开始。</p>
+<div class="modes">
+<div class="mode active" data-mode="normal"><span class="pill good">NORMAL</span><b>正常推进</b><span class="muted">地图可信、验证健康，继续小步交付。</span></div>
+<div class="mode" data-mode="reconcile"><span class="pill warn">RECONCILE</span><b>轻度偏航</b><span class="muted">计划与现实出现差异，校准而不推翻基线。</span></div>
+<div class="mode" data-mode="rescue"><span class="pill bad">RESCUE</span><b>严重失控</b><span class="muted">先考古、重建现实，再重新基线和稳定。</span></div>
+</div>
+<div class="mode-detail" id="modeDetail"></div>
+</div></section>
+
+<section id="rescue"><div class="wrap">
+<h2>4. Rescue：随时加入一个已经混乱的项目</h2>
+<p class="lead">Rescue 的第一原则：刚进入项目时不要冲动重构。先只读调查，把“文档声称什么”和“代码/测试证明什么”分开。</p>
+<div class="flow">
+<div class="node hot">Project<br>Archaeology</div><div class="arrow">→</div>
+<div class="node">Reality<br>Snapshot</div><div class="arrow">→</div>
+<div class="node">Rebuild<br>Map</div><div class="arrow">→</div>
+<div class="node">Drift<br>Detector</div><div class="arrow">→</div>
+<div class="node">Chaos<br>Report</div><div class="arrow">→</div>
+<div class="node">Rebaseline</div><div class="arrow">→</div>
+<div class="node">Stabilize</div><div class="arrow">→</div>
+<div class="node">Return to<br>Product</div>
+</div>
+<div class="grid">
+<div class="card wide"><h3>Evidence Hierarchy</h3><div class="tree"><div>↑ 高可信</div><div>├─ 运行/生产事实</div><div>├─ Tests / CI / schema / migrations</div><div>├─ 当前代码和配置</div><div>├─ 最近合并的工作</div><div>├─ 已接受 ADR / Specs</div><div>├─ 当前文档</div><div>├─ 旧 Roadmap / TODO</div><div>└─ 推测</div><div>↓ 低可信</div></div></div>
+<div class="card wide"><h3>Drift Detector</h3><p><span class="pill warn">Plan</span> 计划与实际路径分离</p><p><span class="pill warn">Docs</span> 文档描述已不存在的系统</p><p><span class="pill warn">Architecture</span> 边界被逐步穿透</p><p><span class="pill warn">Scope</span> MVP 不断膨胀</p><p><span class="pill bad">False Completion</span> UI/API/schema 看似都有，但关键链路没闭环</p></div>
+</div>
+<div class="callout warnc"><b>关键设计：</b>进入支线任务时永远记录 <code>↩ RETURN TO</code>。支线可以很深，但主线坐标不会丢失。</div>
+</div></section>
+
+<section id="commands"><div class="wrap">
+<h2>5. 用户只需要记住少量命令</h2>
+<p class="lead">自然语言同样有效。命令的目的不是“操作一个复杂系统”，而是降低重新表达上下文的成本。</p>
+<div class="commands">
+<div class="cmd"><code>继续</code><span>接受当前推荐路径，并进入下一安全动作。</span></div>
+<div class="cmd"><code>我乱了</code><span>执行 Spatial Recovery：终点、路线、当前位置、最近完成、下一步。</span></div>
+<div class="cmd"><code>看全局</code><span>放大到整个 Phase / Milestone 地图、关键路径和风险。</span></div>
+<div class="cmd"><code>看当前</code><span>缩小到当前 Task / Step、文件、验收条件和 blocker。</span></div>
+<div class="cmd"><code>为什么</code><span>只解释当前动作为什么存在、解决什么依赖、解锁什么。</span></div>
+<div class="cmd"><code>先放着</code><span>放入 Parking Lot，并返回当前主线；若是真 blocker 则明确升级。</span></div>
+<div class="cmd"><code>校准</code><span>比较 Expected State 与 Current Reality，修正轻度漂移。</span></div>
+<div class="cmd"><code>接管项目</code><span>进入 Rescue，启动只读 Project Archaeology。</span></div>
+</div>
+</div></section>
+
+<section id="files"><div class="wrap">
+<h2>6. Skill 用什么保持“项目记忆”</h2>
+<p class="lead">聊天不是唯一事实源。Project Pilot 把导航状态持久化，让新 session 可以从文件恢复，而不是依赖模型记住之前全部对话。</p>
+<div class="grid">
+<div class="card wide"><h3>推荐控制目录</h3><div class="code">.project-pilot/
+├── STATE.md          # 当前坐标和下一动作
+├── MAP.md            # 全项目层级与进度
+├── HEALTH.md         # CI / 测试 / 漂移 / 风险
+├── RECOVERY.md       # Rescue 过程与返回目标
+├── PARKING_LOT.md    # 支线想法
+├── DECISIONS.md      # 关键决策索引
+├── SESSION_LOG.md
+├── plans/
+│   ├── active/
+│   ├── completed/
+│   └── abandoned/
+└── snapshots/</div></div>
+<div class="card wide"><h3>状态不是文档堆</h3><p><b>AGENTS.md</b>：稳定规则与地图入口，不放大量临时状态。</p><p><b>Reference docs</b>：架构、产品、约定等长期知识。</p><p><b>Checkpoint / STATE</b>：当前 session 可恢复状态。</p><p><b>Tests / hooks / scripts</b>：把可确定的验收从语言模型转移给机器执行。</p></div>
+</div>
+</div></section>
+
+<section id="demo"><div class="wrap">
+<h2>7. 对话演示</h2>
+<div class="tabs"><button class="tab active" data-tab="green">新项目</button><button class="tab" data-tab="chaos">混乱项目接管</button><button class="tab" data-tab="lost">“我乱了”</button><button class="tab" data-tab="detour">支线任务</button></div>
+<div class="tabpane active" id="green"><div class="code">用户：我要做一个 AI 财报分析 SaaS，但不知道怎么开始。
+
+Project Pilot：
+🎯 PROJECT
+上线一个可注册、分析财报、生成报告并可收费的 MVP
+Overall: 0% — 正在建立 baseline
+
+📍 YOU ARE HERE
+Discovery → Product Definition → Target User → Step 1/3
+
+🧭 WHY THIS MATTERS
+目标用户决定报告深度、数据流程和 MVP 边界。
+
+🔨 NOW
+选择第一类目标用户。
+Recommended: 个人投资者
+
+✅ DONE WHEN
+目标用户写入 baseline，并可以据此定义第一条核心用户旅程。
+
+回复“继续”接受推荐，或告诉我其他选择。</div></div>
+<div class="tabpane" id="chaos"><div class="code">用户：这个项目做半年了，越来越乱。接管一下。
+
+Project Pilot：
+🎯 PROJECT
+最终目标：正在从代码、文档和近期历史重建
+
+🛟 MODE
+RESCUE → Project Archaeology
+
+📍 CURRENT STATUS
+Map confidence: low
+Code changes: none during archaeology
+
+🔎 OBSERVING NOW
+仓库结构、AGENTS/README、构建、测试、CI、schema、近期 Git 历史、roadmap。
+
+我会把“声称完成”和“有证据完成”分开。
+
+🔨 NOW
+先建立 Reality Snapshot，然后重建项目地图。</div></div>
+<div class="tabpane" id="lost"><div class="code">用户：我乱了。
+
+Project Pilot：
+🎯 FINAL GOAL
+上线 Public Beta
+Overall: 63%
+
+🗺 ROUTE
+Discovery ✓ → Architecture ✓ → MVP ◉ → Hardening → Launch
+
+📍 YOU ARE HERE
+MVP → Billing → Webhook → Step 4/6
+
+↩ RETURN TO
+MVP → Dashboard → Chart Rendering → Step 4
+
+✅ RECENTLY COMPLETED
+✓ Subscription schema
+✓ Checkout endpoint
+✓ Stripe event parser
+
+🔨 NEXT
+修复 webhook integration test 的事件签名验证。
+
+你不需要重新回忆整个项目；主线坐标仍然保留。</div></div>
+<div class="tabpane" id="detour"><div class="code">当前主线：Dashboard → Chart Rendering → Step 4
+
+发现：测试环境中的 Stripe fixture 已过时，阻塞当前集成测试。
+
+Project Pilot：
+↩ RETURN TO
+Dashboard → Chart Rendering → Step 4
+
+临时 Detour：Stabilization → Test Fixtures → Stripe fixture update
+
+为什么现在处理：它是当前验收门的真实 blocker；不是新的产品 scope。
+
+完成条件：fixture 更新后，目标 integration test 可以运行到业务断言。
+
+处理完成后自动返回原坐标。</div></div>
+</div></section>
+
+<section id="install"><div class="wrap">
+<h2>8. 如何使用</h2>
+<p class="lead">`SKILL.md` 是完整工作流定义。把它安装为 Codex/兼容 Agent Skills 的 Skill 后，在目标仓库中通过自然语言调用即可。大型已有项目建议第一次直接说“接管这个项目并校准真实状态”。</p>
+<div class="timeline">
+<div class="titem"><h3>安装 Skill</h3><p>使用本页配套的 <code>SKILL.md</code>。Skill 格式遵循 Agent Skills / OpenAI Skills 的 Markdown 工作流模式。</p></div>
+<div class="titem"><h3>第一次进入仓库</h3><p>Skill 会先判断 BUILD、RECONCILE 还是 RESCUE；已有复杂项目通常先做轻量 archaeology。</p></div>
+<div class="titem"><h3>建立项目地图</h3><p>Project → Phase → Milestone → Task → Step。全局地图稳定，当前附近才做细规划。</p></div>
+<div class="titem"><h3>进入闭环</h3><p>Select → Act → Verify → Record → Navigate。每次小步都有机器可观察的完成门。</p></div>
+<div class="titem"><h3>发现失控</h3><p>先 Reconcile；严重时自动建议 Rescue → Rebaseline，而不是继续在错误计划上堆 patch。</p></div>
+</div>
+<div class="callout"><b>最简单的首次指令：</b><br><code>接管这个项目。先不要改代码，重建真实项目地图，告诉我整体完成情况、当前位置、主要漂移和最合理的下一步。</code></div>
+<table><thead><tr><th>你关心的问题</th><th>Project Pilot 对应机制</th></tr></thead><tbody>
+<tr><td>我现在到底在整个项目哪里？</td><td>固定 YOU ARE HERE + route + nested progress</td></tr>
+<tr><td>为什么现在做这件小事？</td><td>WHY THIS MATTERS</td></tr>
+<tr><td>做着做着偏到支线怎么办？</td><td>PARKING_LOT + RETURN TO</td></tr>
+<tr><td>项目旧文档已经不可信怎么办？</td><td>Evidence Hierarchy + Project Archaeology</td></tr>
+<tr><td>项目完成度是不是 AI 瞎猜？</td><td>树状状态 + 权重 + verified evidence</td></tr>
+<tr><td>停几天以后完全忘了怎么办？</td><td>STATE / CHECKPOINT + Spatial Recovery</td></tr>
+<tr><td>已经越来越乱怎么办？</td><td>RECONCILE → RESCUE → Rebaseline</td></tr>
+</tbody></table>
+</div></section>
+
+<footer class="footer"><div class="wrap">
+<p><b>Project Pilot v0.1</b> — 设计思想融合了小步链式执行、Context Management、Feedback Loop、Offload Deterministic、Knowledge Checkpoint、Focused Agent、Orchestrator、Yak Shave Delegation 等 augmented coding patterns。</p>
+<p class="small">本 HTML 是静态演示说明，不依赖外部库，可直接本地打开。实际 Codex 能力、Skill 安装入口与插件可用性以当前 OpenAI 产品版本为准。</p>
+</div></footer>
+<script>
+const details={
+ normal:`<h3><span class="pill good">NORMAL</span> 正常推进</h3><p>项目地图可信，关键验证信号健康。执行微循环：<b>Select → Align → Act → Verify → Record → Navigate</b>。</p><p class="muted">仍会持续观察 drift；正常模式不意味着停止校准。</p>`,
+ reconcile:`<h3><span class="pill warn">RECONCILE</span> 校准</h3><p>比较 <b>Expected State</b> 与 <b>Observed Reality</b>。纠正进度、状态和路线中的局部错误，但保留仍然有效的 baseline。</p><p class="muted">适合：roadmap 有少量过时、Milestone 状态不准、出现几个计划外任务，但项目整体方向仍可信。</p>`,
+ rescue:`<h3><span class="pill bad">RESCUE</span> 项目救援</h3><p>停止假装旧计划可靠。先只读做 Project Archaeology，再建立 Reality Snapshot、重建地图、检测漂移、重新 baseline，并优先恢复可信的测试/CI/关键链路。</p><p class="muted">适合：无法解释当前位置、多个“已完成”功能实际失败、CI 长期红、架构和文档严重分叉、Scope 失控。</p>`
+};
+const modeDetail=document.getElementById('modeDetail');
+modeDetail.innerHTML=details.normal;
+document.querySelectorAll('.mode').forEach(el=>el.addEventListener('click',()=>{document.querySelectorAll('.mode').forEach(x=>x.classList.remove('active'));el.classList.add('active');modeDetail.innerHTML=details[el.dataset.mode]}));
+document.querySelectorAll('.tab').forEach(el=>el.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.tabpane').forEach(x=>x.classList.remove('active'));el.classList.add('active');document.getElementById(el.dataset.tab).classList.add('active')}));
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+# ---------------------------------------------------------
+# Project Pilot — repository ignore rules
+# ---------------------------------------------------------
+
+# Runtime state produced by the skill when it is used inside this repo.
+# Remove these two lines if you want to version your project-control state.
+.project-pilot/
+.project-pilot
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+desktop.ini
+._*
+
+# --- Windows ---
+ehthumbs.db
+$RECYCLE.BIN/
+*.lnk
+
+# --- Editors / IDE ---
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+*.swo
+*~
+
+# --- Node (only if you add tooling later) ---
+node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# --- Logs & temp ---
+*.log
+*.tmp
+*.bak
