@@ -2,7 +2,7 @@
 
 ## Augmented Coding Patterns
 
-Project Pilot 的「模式路由器（Pattern Router）」一节，其策略标签来自
+Project Pilot 的「模式路由器（Pattern Router）」（`references/pattern-router.md`）与「病因诊断」（`references/diagnosis.md`）两节，其策略标签来自
 [**Augmented Coding Patterns**](https://github.com/lexler/augmented-coding-patterns)，
 作者 **[@lexler](https://github.com/lexler)**。
 
@@ -18,7 +18,7 @@ Project Pilot 的「模式路由器（Pattern Router）」一节，其策略标�
 
 ### 引用清单
 
-下表列出 `SKILL.md` 中出现的全部模式标签及其触发情境，链接指向上游对应条目。
+下表列出 `references/pattern-router.md`（由 `SKILL.md` 按需引用）中出现的全部模式标签及其触发情境，链接指向上游对应条目。
 
 | 触发情境 | 模式标签 | 上游条目 |
 | --- | --- | --- |
@@ -55,7 +55,23 @@ Project Pilot 的「模式路由器（Pattern Router）」一节，其策略标�
 | 成本 / 智能路由 | Smart Plan, Cheap Execution | [smart-plan-cheap-execution](https://lexler.github.io/augmented-coding-patterns/patterns/smart-plan-cheap-execution/) |
 | 成本 / 智能路由 | Advisor Strategy | [advisor-strategy](https://lexler.github.io/augmented-coding-patterns/patterns/advisor-strategy/) |
 
-### 许可证状态（重要）
+### 病因层标签（`references/diagnosis.md`）
+
+下表列出病因诊断中用于归因的标签、对应的可观察症状，以及上游条目。
+
+| 可观察症状 | 标签 | 类型 | 上游条目 |
+| --- | --- | --- | --- |
+| 规则写下来仍被无视 | Selective Hearing | 障碍 | [selective-hearing](https://lexler.github.io/augmented-coding-patterns/obstacles/selective-hearing/) |
+| 会话越长表现越差 | Context Rot | 障碍 | [context-rot](https://lexler.github.io/augmented-coding-patterns/obstacles/context-rot/) |
+| 同样的指令每个会话都要重复 | Cannot Learn | 障碍 | [cannot-learn](https://lexler.github.io/augmented-coding-patterns/obstacles/cannot-learn/) |
+| 同一个 bug 反复「修好」，越修越乱 | Sunk Cost | 反模式 | [sunk-cost](https://lexler.github.io/augmented-coding-patterns/anti-patterns/sunk-cost/) |
+| 两份文档对「项目是什么」各说各话 | Silent Misalignment | 反模式 | [silent-misalignment](https://lexler.github.io/augmented-coding-patterns/anti-patterns/silent-misalignment/) |
+| 开了一堆，一个都没收口 | Cognitive Overload | 反模式 | [cognitive-overload](https://lexler.github.io/augmented-coding-patterns/anti-patterns/cognitive-overload/) |
+| 交付没有人能评审 | Flying Blind | 反模式 | [flying-blind](https://lexler.github.io/augmented-coding-patterns/anti-patterns/flying-blind/) |
+| 对库或 API 的断言自信但错误 | Perfect Recall Fallacy | 反模式 | [perfect-recall-fallacy](https://lexler.github.io/augmented-coding-patterns/anti-patterns/perfect-recall-fallacy/) |
+| 一次事故被升格为全局规则 | Obsess Over Rules | 反模式 | [obsess-over-rules](https://lexler.github.io/augmented-coding-patterns/anti-patterns/obsess-over-rules/) |
+
+### 上游许可状态与使用立场
 
 截至 2026-09-02，上游仓库 `lexler/augmented-coding-patterns`：
 
@@ -65,20 +81,19 @@ Project Pilot 的「模式路由器（Pattern Router）」一节，其策略标�
 
 按 GitHub 服务条款，未声明许可证的公开仓库**默认保留全部权利（all rights reserved）**。
 
-因此本项目的立场是：
+本项目的立场：
 
-1. **仅引用模式名称，不复制内容** —— 模式名称在本项目中充当行为策略的索引标签，
-   不构成对其表达内容的再发布；
-2. **完整署名并链接回上游** —— 见上表与本文件；
-3. 若上游作者提出异议，或要求移除/调整署名方式，本项目将**立即配合处理**。
-
-若你打算对本 skill 进行二次分发或商业化，请先向上游确认授权状态，或考虑移除
-`SKILL.md` 中的 Pattern Router 一节（该节为可选增强，删除后 skill 的核心
-12 条 invariants 与三种模式工作流不受影响）。
+1. **本地自用** —— 本 skill 为个人本地使用，不做二次分发、不商业化。上面记录上游的许可
+   状态，是为了把事实写清楚，不是为了设置使用门槛。
+2. **只借标签，不搬运正文** —— 模式名称在这里充当行为策略的索引；上游的正文、示例与文档
+   是上游自己的表达，本项目不转载。
+3. **完整署名并链接回上游** —— 见上表与本文件。上游名称是这一领域最省认知成本的共同词汇，
+   本项目不把「替换为自有名称」当作方向。
+4. 若上游作者提出异议，或要求调整署名方式，本项目将**立即配合处理**。
 
 ### 其他
 
-- `SKILL.md` 的 12 条 Core Invariants、BUILD / RECONCILE / RESCUE 三种模式、
+- `SKILL.md` 的 14 条 Core Invariants、`references/diagnosis.md` 的病因层归因、BUILD / RECONCILE / RESCUE 三种模式、
   `.project-pilot/` 状态文件约定、命令集与 HUD 格式，均为本项目原创内容，
   以 [MIT](./LICENSE) 发布。
 - `project-pilot-guide.html` 为本项目原创的可视化指南（单文件、零依赖）。
